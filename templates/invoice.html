@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+{% block title %}
+        <title> ShoppieBee | Invoice</title>
+      {% endblock  %}
+{% block content %}
+{% load static %}
+
+     <main>
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-6">
+                    {% if user.is_authenticated%}{% endif %}
+                    <form action="{% url 'by' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <input type="hidden" name="shop" value="{{all.shop}}">
+                        <input type="hidden" name="title" value="{{all.title}}">
+                        <input type="hidden" name="img" value="{{all.img.url}}">
+                        <input type="hidden" name="price" value="{{all.price}}">
+                        <input type="hidden" name="band" value="{{all.band}}">
+                        
+                        <input type="hidden" name="description" value="{{all.description}}">
+
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="text" name="fname" value="{{user.first_name}}" class="form-control" placeholder="First name">
+                            </div>
+                            <div class="col">
+                             <input type="text" name="lname" value="{{user.last_name}}" class="form-control" placeholder="Last name">
+                         </div>
+                         </div>
+
+                         <div class="form-row pt-4">
+                            <div class="col">
+                                <input type="email" name="email" value="{{user.email}}" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="col">
+                             <input type="text" name="phone" class="form-control" placeholder="Phone">
+                         </div>
+                         </div>
+
+                         <div class="form-row pt-4">
+                            <div class="col">
+                                <input type="text" name="address" class="form-control" placeholder="Address">
+                            </div>
+                            <div class="col">
+                             <input type="text" name="city" class="form-control" placeholder="City">
+                         </div>
+                         </div>
+
+                         <div class="form pt-4">
+                            <div class="col-12">
+                                <input type="text" name="division" class="form-control" placeholder="Division">
+                            </div>
+                            
+                         </div>
+                    
+                    
+                    </div>
+                    <div class="col-6">
+                            <p>Send Money <b> {{all.price}} ৳ </b><p>
+                             <div class="form-check">
+                            <input class="form-check-input" type="radio" name="method" id="gridRadios1" value="bKash" checked>
+                             <label class="form-check-label" for="gridRadios1">
+                                bKash (01784452434)
+                            </label>
+                             </div>
+                             <div class="form-check">
+                            <input class="form-check-input" type="radio" name="method" id="gridRadios2" value="Nagad" checked>
+                             <label class="form-check-label" for="gridRadios2">
+                                Nagad (01521542122)
+                            </label>
+                             </div>
+                             <div class="form-check">
+                            <input class="form-check-input" type="radio" name="method" id="gridRadios3" value="Roket" checked>
+                             <label class="form-check-label" for="gridRadios3">
+                                Roket (01760685244)
+                            </label>
+                             </div>
+
+                            <div class="form-row pt-4">
+                            <div class="col">
+                                <input type="text" name="send_number" class="form-control" placeholder="Send Money Number">
+                            </div>
+                            <div class="col">
+                             <input type="text" name="txid" class="form-control" placeholder="TXID">
+                         </div>
+                         </div>
+                         <button type="submit" class="btn btn-danger mt-5">Buy Now</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+    </main>
+
+{% endblock  %}

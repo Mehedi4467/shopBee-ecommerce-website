@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+        <title> ShoppieBee | Product</title>
+      {% endblock  %}
+
+         {% block search %}
+     
+                  <form class="form-inline from_content" method="GET">
+                  
+                   <input class="form-control mr-sm-2" name="dataget" type="search" placeholder="search" aria-label="Search">
+                       <button class="btn btn-light my-sm-0" type="submit">Search</button>
+                      
+                   </form>
+      
+      {% endblock  %}
+{% block content %}
+{% load static %}
+     <main>
+             <div class="row pt-5">
+             {% for pd in p %}
+                <div class="col-md-4 py-3">
+                    <a href="{% url 'check' id=pd.id %}">
+                     <img src="{{pd.img.url}}" alt="pic" class="img-fluid d-block m-auto">
+                     </a>
+                     <h4 class="text-center pt-4">Shop : {{pd.shop}}</h4>
+                    <h6 class="text-center text-dark"> {{pd.title}}</h6>
+                    <div class="aTag text-center">
+                        <p>৳ {{pd.price}}</p>
+                        <a class=" text-white" href="{% url 'check' id=pd.id %}">Buy Now</a>
+                    </div>
+                </div>
+                  {% endfor %}
+                </div>
+                
+                
+            </main>
+{% endblock  %}

@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+        <title> ShoppieBee | My Purchase</title>
+      {% endblock  %}
+      {% block search %}
+       <form class="form-inline from_content" method="GET">
+                  
+                   <a href="{% url 'shop' %}"> My Shop </a>
+                      
+                   </form>
+      {% endblock  %}
+
+{% block content %}
+{% load static %}
+      <main>
+              <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align:center
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<h2 class="pt-5 pb-2">All Purchase Product</h2>
+
+<table>
+  <tr>
+    
+    <th>Product Name</th>
+    <th>Price</th>
+    <th>Shop</th>
+  </tr>
+  {% for b in buy %}
+  <tr>
+    
+    <td>{{b.title}}</td>
+    <td>{{b.price}}</td>
+    <td>{{b.shop}}</td>
+  </tr>
+  {% endfor %}
+
+</table>
+            </main>
+{% endblock  %}

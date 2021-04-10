@@ -1,0 +1,45 @@
+      {% extends 'layout.html' %}
+      {% block title %}
+        <title> ShoppieBee | Login</title>
+      {% endblock  %}
+      {% block content %}
+      {% load static %}
+        <main class="main_one">
+             <section class="form mx-4 py-5">
+                <div class="container">
+                 <div class="row row_one">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
+                     <h1 class="text-dark pt-3">Login</h1>
+                        <h4 class="text-dark">Sign into your Account</h4>
+                     <form method="POST" action="{% url 'log' %}">
+                     {% csrf_token %}
+                        <div class="form-row">
+                         <div class="col-lg-7">
+                             <input type="text" name="username" placeholder=" Username" value="" class="form-control my-3 p-2"/>
+                            </div>
+                         </div>
+                          <div class="form-row">
+                         <div class="col-lg-7">
+                             <input type="password" name="password" placeholder="Enter password" value="" class="form-control my-3 p-2"/>
+                            </div>
+                         </div>
+                         
+                          <div class="form-row">
+                         <div class="col-lg-7">
+                             <button type="submit" class="btn1 mt-3 mb-5">Login</button>
+                            </div>
+                         </div>
+                         
+                         <p>Dont have an account?<a href="{% url 'reg' %}">Register Here</a></p>
+                        </form>
+                     </div>
+                    <div class="col-lg-3"></div>
+                    </div>
+                 </div>
+                </section>
+            </main>
+      
+      {% endblock  %}
+      
+            

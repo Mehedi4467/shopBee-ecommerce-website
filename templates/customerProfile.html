@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+        <title> ShoppieBee | {{user.first_name}}</title>
+      {% endblock  %}
+      {% block search %}
+        <form class="form-inline from_content" method="GET">
+                  
+                   <a href="{% url 'bmyuy' %}"> My Purchase </a>
+                      
+                   </form>
+      {% endblock  %}
+
+{% block content %}
+{% load static %}
+      <main>
+              <div class="row pt-3">
+                <div class="col-lg-4">
+                  <img src="{{Ad.image.url}}" alt="pic" class="img-fluid rounded-circle pt-3">
+                  
+                  </div>
+                  
+                  <div class="col-lg-7 profile_content">
+                    
+                     <p><span><b>Username : </b></span>{{user.username}}</p>
+                     <p><span><b>Name : </b></span>{{user.first_name}} {{user.last_name}}</p>
+                     <p><span><b>Email : </b></span>{{user.email}}</p>
+                     <p><span><b>Phone : </b></span>{{Ad.phone}}</p>
+                      <a class="btn d-block bg-info text-white" href="{% url 'shop' %}">My Shop</a>
+                    <div class="text-center mt-3">
+                        <a href="{% url 'update' %}">Profile Update</a>
+                        <a class="pl-3" href="{% url 'pass' %}">password Change</a>
+                    </div>
+                    
+                   
+                  </div>
+                </div>
+            </main>
+{% endblock  %}

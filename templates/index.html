@@ -1,0 +1,56 @@
+{% extends 'layout.html' %} 
+        {% block title %}
+        <title> ShoppieBee | Home</title>
+      {% endblock  %}
+      {% block search %}
+     
+                  <form class="form-inline from_content" method="GET">
+                  
+                   <input class="form-control mr-sm-2" name="getdata" type="search" placeholder="search" aria-label="Search">
+                       <button class="btn btn-light my-sm-0" type="submit">Search</button>
+                      
+                   </form>
+      
+      {% endblock  %}
+{% block content %}
+
+{% load static %}
+     <main> 
+             <div class="col-lg-12">
+                  <h2 class="text-center pt-5">Latest Product</h2>
+                </div>
+                <div class="row">
+                {% for l in last %}
+                  <div class="col-lg-6 pt-5">
+                   <a href="{% url 'check' id=l.id %}"><img class="img-fluid" src="{{l.img.url}}" alt="pic" style="width: 100%"></a> 
+                    </div>
+                  
+                  {% endfor %}
+                </div>
+                
+                <div class="col-lg-12">
+                  <h2 class="text-center py-5">Explore more</h2>
+                </div>
+                
+               <div class="row">
+               {% for s in sp %}
+                   <div class="col-md-3 text-center">
+                    <a href="{% url 'check' id=s.id %}"> <img src="{{s.img.url}}" alt="pic"  class="second-content-one img-fluid d-block m-auto"></a>
+                    <p class="pt-3"><b>Shop : </b>{{s.shop}}</p>
+                    <h6 >{{s.title}}</h6>
+                    <div class="aTag  pb-3">
+                        <p>৳ {{s.price}}</p>
+                        <a class=" text-white " href="{% url 'check' id=s.id %}">Buy Now</a>
+                    </div>
+                  </div>
+                    {% endfor %}
+                </div>
+            
+            </main>
+            
+            
+
+{% endblock  %}
+
+        
+        

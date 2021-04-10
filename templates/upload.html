@@ -1,0 +1,61 @@
+{% extends 'layout.html' %} 
+{% load crispy_forms_tags %}
+        {% block title %}
+        <title> ShoppieBee | My Shop</title>
+      {% endblock  %}
+      {% block product %}<li class="nav-item active"><a class="nav-link text-dark" href="{% url 'shop' %}">My shop</a></li>{% endblock  %}
+{% block content %}
+
+{% load static %}
+     <main>
+           
+           <div class="container py-5">
+                
+                <div class="row">
+                 <div class="col-lg-3"></div>
+                 <div class="col-lg-6">
+                    <div class="">
+                        <h1 class="text-center text-info pb-4">Upload Product</h1>
+                     <form class="form-group " method="POST" action="{% url 'pupload' %}" enctype="multipart/form-data">
+                     {% csrf_token %}
+                         <div class="row">
+                         <div class="col-lg-12 pb-3">
+                         <label for="formGroupExampleInput">Shop Name <span>*</span></label>
+                            <input type="text" name="shop" id="formGroupExampleInput" placeholder="Shop Name" class="form-control">
+                          </div>
+                           <div class="col-lg-12 pb-3">
+                         <label for="pname">Product Name <span>*</span></label>
+                            <input type="text" name="title" id="pname" placeholder="Product Name" class="form-control">
+                          </div>
+                          <div class="col-lg-12 pb-3">
+                         <label for="img">Product Image <span>*</span></label>
+                            <input type="file" name="img" id="img" placeholder="Product Image" class="form-control-file">
+                          </div>
+                          <div class="col-lg-12 pb-3">
+                         <label for="img2">Product Price <span>*</span></label>
+                            <input type="text" name="price" id="img2" placeholder="Product Image" class="form-control">
+                          </div>
+                          <div class="col-lg-12 pb-3">
+                         <label for="img4">Product Brand</label>
+                            <input type="text" name="band" id="img4" placeholder="Product Brand" class="form-control">
+                          </div>
+                          <div class="col-lg-12 pb-3">
+                         <label for="img5">Product Description</label>
+                            <textarea rows="4" cols="50" name="description" id="img5" placeholder="Product Description" class="form-control"></textarea>
+                          </div>
+                       
+                         <input type="submit" name="submit" value="submit" class="btn btn-primary btn-block btn-lg">
+                        </form>
+                     </div>
+                    </div>
+                 <div class="col-lg-3"></div>
+                 </div>
+                </div>
+    </main>
+            
+            
+
+{% endblock  %}
+
+        
+        

@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block title %}
+        <title> ShoppieBee | Checkout</title>
+      {% endblock  %}
+{% block content %}
+{% load static %}
+
+     <main>
+             <div class="row">
+                <div class="col-md-4 pt-5">
+                 <img src="{{c.img.url}}" height="300px" width="300px" alt="pic">
+                    
+                 </div>
+                 <div class="col-lg-6 pt-5">
+                  <h3>{{c.title}}</h3>
+                  <h4>Shop : {{c.shop}}</h4>
+                     <h6> Price : ৳ {{c.price}}</h6>
+                     <p>Brandd : {{c.band}}</p>
+                     
+                     <p>{{c.description}}</p>
+                    
+                     <a href="{% url 'in' id=c.id %}" class="btn mb-3 bg-dark text-white text-center border">BUY NOW</a>
+                 </div>
+                </div>
+            </main>
+
+{% endblock  %}

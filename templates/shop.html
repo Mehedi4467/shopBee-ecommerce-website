@@ -1,0 +1,38 @@
+{% extends 'layout.html' %} 
+        {% block title %}
+        <title> ShoppieBee | My Shop</title>
+      {% endblock  %}
+      {% block product %}<li class="nav-item active"><a class="nav-link text-dark" href="{% url 'pupload' %}">Upload Product</a></li>{% endblock  %}
+{% block content %}
+
+{% load static %}
+     <main>
+           
+                
+                <div class="col-lg-12">
+                  <h2 class="text-center py-5">My Products</h2>
+                </div>
+                
+               <div class="row">
+               {% for s in sp %}
+                   <div class="col-md-3 text-center">
+                   <img src="{{s.img.url}}" alt="pic" height="200px"  class="second-content-one  d-block m-auto">
+                    <h4 class="pt-3">{{s.shop}}</h4>
+                    <p class="pt-3">{{s.title}}</p>
+                    <div class="aTag  pb-3">
+                        <p>৳ {{s.price}}</p>
+                        
+                    </div>
+                  </div>
+
+                  {% endfor %}
+                </div>
+            
+            </main>
+            
+            
+
+{% endblock  %}
+
+        
+        
